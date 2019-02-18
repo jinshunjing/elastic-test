@@ -1,0 +1,5 @@
+org/jim/elasticsearch/Employee$EmployeeBuilder.class
+org/jim/elasticsearch/EmployeeController.class
+org/jim/elasticsearch/Employee.class
+org/jim/elasticsearch/EmployeeRepository.class
+org/jim/elasticsearch/AppMain.class

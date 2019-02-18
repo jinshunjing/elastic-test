@@ -1,0 +1,10 @@
+# Server
+server:
+  port: 8661
+
+# elasticsearch
+spring:
+  data:
+    elasticsearch:
+      cluster-name: flow
+      cluster-nodes: 47.99.196.196:9300
