@@ -25,12 +25,14 @@ public class Employee implements Serializable {
 
     /**
      * 用户昵称
+     * 用于排序和聚合的字段：定义成Keyword类型
      */
     @Field(type = FieldType.Keyword)
     private String name;
 
     /**
      * 备注
+     * 不用于查询的字段：index赋值false（不创建索引）
      */
     @Field(type = FieldType.Text, index = false)
     private String note;

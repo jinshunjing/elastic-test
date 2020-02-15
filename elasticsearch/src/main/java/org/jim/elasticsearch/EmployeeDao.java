@@ -7,7 +7,6 @@ import org.elasticsearch.search.aggregations.AggregationBuilders;
 import org.elasticsearch.search.aggregations.bucket.histogram.DateHistogramAggregationBuilder;
 import org.elasticsearch.search.aggregations.bucket.histogram.DateHistogramInterval;
 import org.elasticsearch.search.aggregations.bucket.histogram.InternalDateHistogram;
-import org.jim.elasticsearch.model.InvestProfit;
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -32,6 +31,18 @@ public class EmployeeDao {
 
     @Autowired
     private EmployeeRepository repository;
+
+    public void createIndex() {
+        // 创建索引
+        boolean result = esTemplate.deleteIndex(Employee.class);
+        System.out.println("Deleted index: " + result);
+        result = esTemplate.createIndex(Employee.class);
+        System.out.println("Created index: " + result);
+
+        // 创建映射
+        result = esTemplate.putMapping(Employee.class);
+        System.out.println("Put mapping: " + result);
+    }
 
     /**
      * 添加文档
