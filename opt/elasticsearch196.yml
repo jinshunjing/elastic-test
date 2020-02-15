@@ -1,0 +1,11 @@
+cluster.name: crces
+node.name: node-196
+path.data: /mnt/es/data
+path.logs: /mnt/es/logs
+network.host: 172.16.219.236
+http.port: 21092
+transport.tcp.port: 21093
+discovery.zen.ping.unicast.hosts: ["172.16.219.237", "172.16.66.160"]
+discovery.zen.minimum_master_nodes: 2
+xpack.security.enabled: false
+

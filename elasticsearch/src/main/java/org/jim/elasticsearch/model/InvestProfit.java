@@ -1,4 +1,4 @@
-package org.jim.elasticsearch;
+package org.jim.elasticsearch.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,42 +9,59 @@ import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
 
-import java.io.Serializable;
+import java.math.BigDecimal;
 
+/**
+ * 投资收益
+ *
+ * @author Jim
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Document(indexName = "dev_employee", type = "employee")
-public class Employee implements Serializable {
+@Document(indexName = "dev_invest_profit", type = "invest_profit")
+public class InvestProfit {
     /**
      * 主键
      */
     @Id
-    private String id;
+    String id;
 
     /**
-     * 用户昵称
+     * 类型
+     */
+    @Field
+    int type;
+
+    /**
+     * 受益人
      */
     @Field(type = FieldType.Keyword)
-    private String name;
+    String owner;
 
     /**
-     * 备注
+     * 状态
      */
-    @Field(type = FieldType.Text, index = false)
-    private String note;
-
-    /**
-     * 资产金额
-     */
-    @Field(type = FieldType.Keyword)
-    private String assetAmount;
+    @Field(type = FieldType.Integer)
+    int state;
 
     /**
      * 创建时间
      */
-    @Field(type = FieldType.Date)
-    private long createTime;
+    @Field
+    long createTime;
+
+    /**
+     * 收益详情
+     */
+    @Field(type = FieldType.Keyword)
+    String assetCode;
+
+    /**
+     * 资产金额
+     */
+    @Field(index = false)
+    String assetAmount;
 
 }

@@ -6,5 +6,5 @@ server:
 spring:
   data:
     elasticsearch:
-      cluster-name: flow
-      cluster-nodes: 47.99.196.196:9300
+      cluster-name: data
+      cluster-nodes: 120.27.215.53:21093
